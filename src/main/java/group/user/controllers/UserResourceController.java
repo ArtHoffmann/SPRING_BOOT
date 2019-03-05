@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "User Resource REST Endpoint", description = "Shows the user info")
 public class UserResourceController {
 
-    @Autowired
-    private UserRepository userRepository;
+
 
     @Autowired
     private UserImpl userDAO;
@@ -23,11 +22,22 @@ public class UserResourceController {
     public @ResponseBody Iterable<User> getAllUsers() {
         // This returns a JSON or XML with the users
         System.out.println("Items MYSQL" + userDAO.userList());
-        return userRepository.findAll();
+        return userDAO.userList();
     }
 
+    @RequestMapping(value = "/newUser", method = RequestMethod.POST)
+    public User newUser(@RequestBody User u){
+        userDAO.addUser(u);
+        return  u;
+    }
 
-
-
+    @RequestMapping(value = "/newUser/{id}", method = RequestMethod.DELETE)
+    public boolean deleteUser(@PathVariable int id){
+      if(userDAO.deleteUser(id)){
+          return true;
+      }else {
+          return false;
+      }
+    }
 
 }

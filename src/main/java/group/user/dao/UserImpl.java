@@ -24,7 +24,7 @@ public class UserImpl implements UserDAO {
 
     @Override
     public void addUser(User u) {
-
+        userRepository.save(u);
     }
 
     @Override
@@ -34,7 +34,8 @@ public class UserImpl implements UserDAO {
 
     @Override
     public boolean deleteUser(int id) {
-        return false;
+        userRepository.deleteById(id);
+        return true;
     }
 
 
