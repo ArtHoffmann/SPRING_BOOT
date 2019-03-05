@@ -1,8 +1,6 @@
 package group.user.controllers;
-import group.user.dao.UserDAO;
 import group.user.dao.UserImpl;
 import group.user.entity.User;
-import group.user.repository.UserRepository;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
