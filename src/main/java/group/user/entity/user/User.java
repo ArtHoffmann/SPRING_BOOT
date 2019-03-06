@@ -1,5 +1,6 @@
-package group.user.entity;
+package group.user.entity.user;
 
+import group.user.entity.residence.Residence;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -16,18 +17,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name="firstname", nullable = false, unique = true)
     private String firstname;
+
     @Column(name="lastname", nullable = false, unique = true)
     private String lastname;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstname;

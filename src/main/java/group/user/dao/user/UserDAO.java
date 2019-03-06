@@ -1,6 +1,6 @@
-package group.user.dao;
+package group.user.dao.user;
 
-import group.user.entity.User;
+import group.user.entity.user.User;
 
 import java.util.List;
 

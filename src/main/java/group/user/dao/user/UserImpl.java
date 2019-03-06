@@ -1,13 +1,10 @@
-package group.user.dao;
-import group.user.controllers.UserResourceController;
-import group.user.entity.User;
-import group.user.repository.UserRepository;
-import org.slf4j.LoggerFactory;
+package group.user.dao.user;
+import group.user.entity.user.User;
+import group.user.repository.userRepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 @Service
 public class UserImpl implements UserDAO {
@@ -36,7 +33,6 @@ public class UserImpl implements UserDAO {
         User u = userRepository.findById(id).get();
         return u;
     }
-
 
     @Override
     public boolean deleteUser(int id) {

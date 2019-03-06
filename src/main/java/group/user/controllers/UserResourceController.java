@@ -1,6 +1,6 @@
 package group.user.controllers;
-import group.user.dao.UserImpl;
-import group.user.entity.User;
+import group.user.dao.user.UserImpl;
+import group.user.entity.user.User;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @EnableAutoConfiguration
-@RestController
+@RestController("userResourceController")
 @RequestMapping("userConfiguration")
 @Api(value = "User Resource REST Endpoint", description = "Shows the user info")
 public class UserResourceController {
