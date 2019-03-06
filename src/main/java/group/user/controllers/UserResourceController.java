@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @EnableAutoConfiguration
 @RestController
-@RequestMapping("rest")
+@RequestMapping("userConfiguration")
 @Api(value = "User Resource REST Endpoint", description = "Shows the user info")
 public class UserResourceController {
 
