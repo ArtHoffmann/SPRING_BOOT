@@ -3,13 +3,15 @@ import group.user.dao.UserImpl;
 import group.user.entity.User;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
+
+@EnableAutoConfiguration
 @RestController
 @RequestMapping("rest")
 @Api(value = "User Resource REST Endpoint", description = "Shows the user info")
 public class UserResourceController {
-
 
 
     @Autowired
@@ -37,5 +39,8 @@ public class UserResourceController {
           return false;
       }
     }
-
+    @PutMapping("/users/{id}")
+    public User updateUser(@RequestBody User u, @PathVariable int id){
+        return userDAO.updateUser(u, id);
+    }
 }
