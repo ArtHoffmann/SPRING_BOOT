@@ -9,4 +9,5 @@ public interface UserDAO {
    User updateUser(User user, int id) throws Exception;
    boolean deleteUser(int id) throws Exception;
    List<User> userList() throws Exception;
+   int getNumberOfResidences();
 }

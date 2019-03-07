@@ -4,11 +4,9 @@ import group.user.dao.residence.ResidenceImpl;
 import group.user.entity.residence.Residence;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController("residenceController")
 @RequestMapping("residenceConfiguration")
@@ -19,8 +17,18 @@ public class ResidenceResourceController {
     ResidenceImpl residence;
 
     @GetMapping("/residence")
-    public @ResponseBody Iterable<Residence> getAllUsersResidence(){
+    public @ResponseBody List<Residence> getAllUsersResidence(){
         return residence.userList();
     }
 
+    @PostMapping("/newUserAndResidence")
+    public Residence newUser(@RequestBody Residence u) throws Exception{
+        residence.addUserResidence(u);
+        return  u;
+    }
+    @PostMapping("/updateUserResidence/{userId}/{residenceId}")
+    public Residence updateUserResidence(@RequestBody Residence u, Long userId, Long residenceId) throws Exception{
+       residence.updateUserResidence(u, userId, residenceId);
+       return  u;
+    }
 }

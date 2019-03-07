@@ -17,6 +17,10 @@ public class UserResourceController {
     @Autowired
     private UserImpl userDAO;
 
+    @GetMapping(value="numberUserResident")
+    public @ResponseBody int getAllUsersResidence() {
+        return userDAO.getNumberOfResidences();
+    }
 
     @GetMapping(value="/users")
     public @ResponseBody Iterable<User> getAllUsers() {

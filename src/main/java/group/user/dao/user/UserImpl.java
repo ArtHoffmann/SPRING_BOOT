@@ -1,5 +1,6 @@
 package group.user.dao.user;
 import group.user.entity.user.User;
+import group.user.repository.residenceRepository.ResidenceRepository;
 import group.user.repository.userRepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,12 +10,18 @@ import java.util.List;
 @Service
 public class UserImpl implements UserDAO {
 
-    @Autowired
+    @Autowired()
     UserRepository userRepository;
-
+    @Autowired
+    ResidenceRepository residenceRepository;
     @Override
     public List<User> userList() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public int getNumberOfResidences() {
+       return residenceRepository.findAll().toArray().length;
     }
 
     @Override

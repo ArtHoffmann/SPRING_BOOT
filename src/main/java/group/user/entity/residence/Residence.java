@@ -1,8 +1,6 @@
 package group.user.entity.residence;
 
 import group.user.entity.user.User;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 
 @Entity
@@ -20,13 +18,21 @@ public class Residence {
     private String address;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="userid")
     private User user;
 
     public Residence(int postcode, String address, User user){
         this.postcode = postcode;
         this.address = address;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
         this.user = user;
     }
 

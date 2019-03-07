@@ -4,6 +4,7 @@ import group.user.entity.residence.Residence;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="user")
@@ -13,6 +14,12 @@ public class User {
     public User() {
 
     }
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name="idresidence")
+    private List<Residence> residence;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -5,8 +5,8 @@ import group.user.entity.residence.Residence;
 import java.util.List;
 
 public interface ResidenceDAO {
-    void addUser(Residence u) throws Exception;
-    Residence updateUser(Residence user, int id) throws Exception;
+    void addUserResidence(Residence u) throws Exception;
+    Residence updateUserResidence(Residence user, Long userId, Long residenceId) throws Exception;
     boolean deleteUser(int id) throws Exception;
     List<Residence> userList() throws Exception;
 }
